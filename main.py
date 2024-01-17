@@ -13,7 +13,7 @@ from bonus import Bonus
 
 con = sqlite3.connect("data_base.db")
 cur = con.cursor()
-
+pygame.display.set_caption('Breaking bricks')
 
 def draw_text(text, font, text_col, x, y):
     img = font.render(text, True, text_col)
@@ -118,6 +118,7 @@ while running:
             running = False
     if window_pos == 0:
         screen.fill((52, 78, 91))
+        draw_text("Breaking bricks", pygame.font.SysFont("Arial Black", 55), (255, 255, 255), 40, 60)
         if play_button.draw(screen):
             window_pos = 1
         if settings_button.draw(screen):
@@ -135,7 +136,7 @@ while running:
         if hard_button.draw(screen):
             window_pos = 5
     elif window_pos == 2:
-        pass
+        window_pos = 0
     elif window_pos in [3, 4, 5]:
         screen.fill((52, 78, 91))
         if back_button.draw(screen):

@@ -15,6 +15,7 @@ con = sqlite3.connect("data_base.db")
 cur = con.cursor()
 pygame.display.set_caption('Breaking bricks')
 
+
 def draw_text(text, font, text_col, x, y):
     img = font.render(text, True, text_col)
     screen.blit(img, (x, y))
@@ -346,7 +347,7 @@ while running:
                         all_sprites.remove(i)
                         bonus_sprite.remove(i)
                 ball = Ball(5, width // 2, height * 3 // 4)
-                racket.rect.x, racket.rect.y = width // 2 - 43+50-racket.length//2, height * 5 // 6
+                racket.rect.x, racket.rect.y = width // 2 - 43 + 50 - racket.length // 2, height * 5 // 6
                 running = waiting(running, racket)
             if (len(balls_list) == 0 and racket.lives < 2) or racket.lives == 0:
                 try_again_button = Button(183, 275, pygame.image.load("images/button_try_again.png").convert_alpha(), 1)
